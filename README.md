@@ -1,6 +1,8 @@
 # PCF8574 Arduino library
 ## By SkyWodd
 
+[![.github/workflows/arduino-lint.yml](https://github.com/feanor-anglin/PCF8575-lib/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/feanor-anglin/PCF8575-lib/actions/workflows/arduino-lint.yml)
+
 ### Overview
 ---
 
