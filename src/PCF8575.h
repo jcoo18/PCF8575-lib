@@ -59,8 +59,11 @@ public:
 
 	/**
 	 * Start the I2C controller and store the PCF8575 chip address
+	 * 
+	 * @param address the device address
+	 * @return the response of the connection test to address
 	 */
-	void begin(uint8_t address = 0x21);
+	uint8_t begin(uint8_t address = 0x21);
 
 	/**
 	 * Set the direction of a pin (OUTPUT, INPUT or INPUT_PULLUP)

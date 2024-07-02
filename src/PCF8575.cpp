@@ -30,12 +30,18 @@ PCF8575::PCF8575() :
 {
 }
 
-void PCF8575::begin(uint8_t address) {
+uint8_t PCF8575::begin(uint8_t address) {
 
 	/* Store the I2C address and init the Wire library */
 	_address = address;
 	Wire.begin();
-	readGPIO();
+	//Removed to remove loop on failure
+	//readGPIO();
+
+	// Test connection
+	Wire.beginTransmission(_address);
+	// returns 0 on device at address
+    return Wire.endTransmission();
 }
 
 void PCF8575::pinMode(uint8_t pin, uint8_t mode) {
