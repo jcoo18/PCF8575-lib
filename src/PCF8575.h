@@ -33,7 +33,7 @@
 #define PCF8575_H
 
 /** Comment this define to disable interrupt support */
-#define PCF8575_INTERRUPT_SUPPORT
+//#define PCF8575_INTERRUPT_SUPPORT
 
 /* Retro-compatibility with arduino 0023 and previous version */
 #if ARDUINO >= 100
