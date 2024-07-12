@@ -27,10 +27,9 @@ PCF8575::PCF8575() :
 #ifdef PCF8575_INTERRUPT_SUPPORT
 		, _oldPIN(0), _isrIgnore(0), _pcintPin(0), _intMode(), _intCallback()
 #endif
-{
-}
 
-uint8_t PCF8575::begin(uint8_t address) {
+
+bool PCF8575::begin(uint8_t address) {
 
 	/* Store the I2C address and init the Wire library */
 	_address = address;
@@ -39,9 +38,11 @@ uint8_t PCF8575::begin(uint8_t address) {
 	//readGPIO();
 
 	// Test connection
+	bool response = false;
 	Wire.beginTransmission(_address);
 	// returns 0 on device at address
-    return Wire.endTransmission();
+	response = !Wire.endTransmission();
+    return response;
 }
 
 void PCF8575::pinMode(uint8_t pin, uint8_t mode) {

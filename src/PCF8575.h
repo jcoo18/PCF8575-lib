@@ -63,7 +63,7 @@ public:
 	 * @param address the device address
 	 * @return the response of the connection test to address
 	 */
-	uint8_t begin(uint8_t address = 0x20);
+	bool begin(uint8_t address = 0x20);
 
 	/**
 	 * Set the direction of a pin (OUTPUT, INPUT or INPUT_PULLUP)
