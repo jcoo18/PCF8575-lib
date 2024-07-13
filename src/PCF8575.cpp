@@ -22,11 +22,14 @@
 #include "PCint.h"	// 
 #endif
 
-PCF8575::PCF8575() :
+PCF8575::PCF8575():
 		_PORT(0), _PIN(0), _DDR(0), _address(0)
 #ifdef PCF8575_INTERRUPT_SUPPORT
 		, _oldPIN(0), _isrIgnore(0), _pcintPin(0), _intMode(), _intCallback()
 #endif
+{
+	
+}
 
 
 bool PCF8575::begin(uint8_t address) {

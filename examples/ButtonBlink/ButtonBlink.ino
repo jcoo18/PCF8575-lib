@@ -22,7 +22,7 @@ void setup() {
   Serial.begin(115200);
   
   /* Start I2C bus and PCF8575 instance */
-  expander.begin(0x20);
+  expander.begin(0x27);
   
   /* Setup some PCF8575 pins for demo */
   expander.pinMode(0, OUTPUT);
@@ -31,10 +31,10 @@ void setup() {
   expander.pinMode(3, INPUT_PULLUP);
   
   /* Enable PCF8575 interrupts, use pin D8 as "INT" pin and ISRgateway() as callback function */
-  expander.enableInterrupt(8, ISRgateway);
+  //expander.enableInterrupt(8, ISRgateway);
   
   /* Attach a software interrupt on pin 3 of the PCF8575 */
-  expander.attachInterrupt(3, ISRdemo, FALLING);
+  //expander.attachInterrupt(3, ISRdemo, FALLING);
   expander.digitalWrite(0, HIGH); // Turn off led 1
 }
 
@@ -90,11 +90,11 @@ void loop() {
   //delay(1000);
 
   /* DigitalRead demo */
-  expander.detachInterrupt(3); // Temporaly disable button interrupt
+  //expander.detachInterrupt(3); // Temporaly disable button interrupt
   delay(1000);                 // PRESS THE BUTTON NOW (if you want to press it) !
   Serial.println(expander.digitalRead(3) ? "HIGH" : "LOW"); // Print button pin state
   Serial.println(expander.read(), DEC); // Read the whole pins input register
-  expander.attachInterrupt(3, ISRdemo, FALLING); // Re-enable interrupt on button pin
+  //expander.attachInterrupt(3, ISRdemo, FALLING); // Re-enable interrupt on button pin
 
   /* Final demo (warning: will make button bug) */
   //expander.set();   // All led off
